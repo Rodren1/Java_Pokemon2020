@@ -198,6 +198,7 @@ public class VentanaPokedex extends javax.swing.JFrame {
         contador ++;
         if (contador >=150){
             contador = 150;
+            
         }
         
     }//GEN-LAST:event_derActionPerformed
