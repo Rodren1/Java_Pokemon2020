@@ -62,7 +62,7 @@ public class VentanaPokedex extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             conexion = DriverManager
                     .getConnection("jdbc:mysql://127.0.0.1/test",
-                            "root",
+                            "user",
                             "");
             estado = conexion.createStatement();
         }
@@ -176,7 +176,7 @@ public class VentanaPokedex extends javax.swing.JFrame {
     private void izqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_izqActionPerformed
         contador --;
         if (contador <=0){
-            contador = 1;
+            contador = 0;
         }
         dibujaElPokemonQueEstaEnLaPosicion(contador);
     }//GEN-LAST:event_izqActionPerformed
@@ -196,8 +196,8 @@ public class VentanaPokedex extends javax.swing.JFrame {
         } catch (SQLException ex) {
         }
         contador ++;
-        if (contador >=649){
-            contador = 649;
+        if (contador >=150){
+            contador = 150;
         }
         
     }//GEN-LAST:event_derActionPerformed
