@@ -150,9 +150,11 @@ public class VentanaPokedex extends javax.swing.JFrame {
         tipo2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        pokedex = new javax.swing.JLabel();
+        arriba = new javax.swing.JButton();
+        abajo = new javax.swing.JButton();
         dcha = new javax.swing.JButton();
         izq = new javax.swing.JButton();
+        pokedex = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -255,11 +257,31 @@ public class VentanaPokedex extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, 260, 330));
 
-        pokedex.setBackground(new java.awt.Color(0, 0, 0));
-        pokedex.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        pokedex.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        pokedex.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pkedex.png"))); // NOI18N
-        getContentPane().add(pokedex, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 750, 550));
+        arriba.setBackground(new java.awt.Color(0, 0, 0));
+        arriba.setForeground(new java.awt.Color(255, 255, 255));
+        arriba.setBorder(null);
+        arriba.setBorderPainted(false);
+        arriba.setFocusPainted(false);
+        arriba.setOpaque(false);
+        arriba.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                arribaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(arriba, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, 30, 20));
+
+        abajo.setBackground(new java.awt.Color(0, 0, 0));
+        abajo.setForeground(new java.awt.Color(255, 255, 255));
+        abajo.setBorder(null);
+        abajo.setBorderPainted(false);
+        abajo.setFocusPainted(false);
+        abajo.setOpaque(false);
+        abajo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                abajoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(abajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, 30, 20));
 
         dcha.setBackground(new java.awt.Color(0, 0, 0));
         dcha.setForeground(new java.awt.Color(255, 255, 255));
@@ -286,6 +308,12 @@ public class VentanaPokedex extends javax.swing.JFrame {
             }
         });
         getContentPane().add(izq, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 430, 30, 20));
+
+        pokedex.setBackground(new java.awt.Color(0, 0, 0));
+        pokedex.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        pokedex.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pokedex.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pkedex.png"))); // NOI18N
+        getContentPane().add(pokedex, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 750, 550));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -320,6 +348,7 @@ public class VentanaPokedex extends javax.swing.JFrame {
             habitat.setText("Habitat del pokemon: " + "No hay datos");
             especie.setText("Especie: " + "No hay datos");
             id.setText("Nº en la pokedex: " + "XX");
+            descripcion.setText("No hay datos");
         }
         contador--;
         if (contador <= 0) {
@@ -357,6 +386,7 @@ public class VentanaPokedex extends javax.swing.JFrame {
             habitat.setText("Habitat del pokemon: " + "No hay datos");
             especie.setText("Especie: " + "No hay datos");
             id.setText("Nº en la pokedex: " + "XX");
+            descripcion.setText("No hay datos");
         }
         contador++;
         if (contador >= 150) {
@@ -364,6 +394,85 @@ public class VentanaPokedex extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_dchaActionPerformed
+
+    private void abajoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abajoActionPerformed
+        contador -= 10;
+        if (contador <= 0) {
+            contador = 0;
+        }
+        dibujaElPokemonQueEstaEnLaPosicion(contador - 1);
+        Pokemon p = listaPokemones.get(String.valueOf(contador));
+        if (p != null) {
+            nombrePokemon.setText("Nombre: " + p.nombre);
+            altura.setText("Altura: " + p.altura + " m");
+            peso.setText("Peso: " + p.peso + " kg");
+            movimiento1.setText("1º " + p.movimiento1);
+            movimiento2.setText("2º " + p.movimiento2);
+            movimiento3.setText("3º " + p.movimiento3);
+            movimiento4.setText("4º " + p.movimiento4);
+            tipo1.setText("Tipos: " + p.tipo1 + "     / ");
+            tipo2.setText(p.tipo2);
+            habitat.setText("Habitat del pokemon: " + p.habitat);
+            especie.setText("Especie: " + p.especie);
+            id.setText("Nº en la pokedex: " + p.id);
+            descripcion.setText(p.descripcion);
+        } else {
+            nombrePokemon.setText("Nombre: " + "No hay datos");
+            altura.setText("Altura: " + "No hay datos");
+            peso.setText("Peso: " + "No hay datos");
+            movimiento1.setText("1º " + "No hay datos");
+            movimiento2.setText("2º " + "No hay datos");
+            movimiento3.setText("3º " + "No hay datos");
+            movimiento4.setText("4º " + "No hay datos");
+            tipo1.setText("Tipos: " + "No hay datos");
+            tipo2.setText("");
+            habitat.setText("Habitat del pokemon: " + "No hay datos");
+            especie.setText("Especie: " + "No hay datos");
+            id.setText("Nº en la pokedex: " + "XX");
+            descripcion.setText("No hay datos");
+        }
+        
+    }//GEN-LAST:event_abajoActionPerformed
+
+    private void arribaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arribaActionPerformed
+        contador += 10;
+        if (contador >= 151) {
+            contador = 151;
+
+        }
+        dibujaElPokemonQueEstaEnLaPosicion(contador-1);
+        Pokemon p = listaPokemones.get(String.valueOf(contador));
+        if (p != null) {
+            nombrePokemon.setText("Nombre: " + p.nombre);
+            altura.setText("Altura: " + p.altura + " m");
+            peso.setText("Peso: " + p.peso + " kg");
+            movimiento1.setText("1º " + p.movimiento1);
+            movimiento2.setText("2º " + p.movimiento2);
+            movimiento3.setText("3º " + p.movimiento3);
+            movimiento4.setText("4º " + p.movimiento4);
+            tipo1.setText("Tipos: " + p.tipo1 + "     / ");
+            tipo2.setText(p.tipo2);
+            habitat.setText("Habitat del pokemon: " + p.habitat);
+            especie.setText("Especie: " + p.especie);
+            id.setText("Nº en la pokedex: " + p.id);
+            descripcion.setText(p.descripcion);
+        } else {
+            nombrePokemon.setText("Nombre: " + "No hay datos");
+            altura.setText("Altura: " + "No hay datos");
+            peso.setText("Peso: " + "No hay datos");
+            movimiento1.setText("1º " + "No hay datos");
+            movimiento2.setText("2º " + "No hay datos");
+            movimiento3.setText("3º " + "No hay datos");
+            movimiento4.setText("4º " + "No hay datos");
+            tipo1.setText("Tipos: " + "No hay datos");
+            tipo2.setText("");
+            habitat.setText("Habitat del pokemon: " + "No hay datos");
+            especie.setText("Especie: " + "No hay datos");
+            id.setText("Nº en la pokedex: " + "XX");
+            descripcion.setText("No hay datos");
+        }
+        
+    }//GEN-LAST:event_arribaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -401,7 +510,9 @@ public class VentanaPokedex extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton abajo;
     private javax.swing.JLabel altura;
+    private javax.swing.JButton arriba;
     private javax.swing.JButton dcha;
     private javax.swing.JTextPane descripcion;
     private javax.swing.JLabel especie;
