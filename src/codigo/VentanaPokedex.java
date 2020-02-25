@@ -150,11 +150,11 @@ public class VentanaPokedex extends javax.swing.JFrame {
         tipo2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        pokedex = new javax.swing.JLabel();
         arriba = new javax.swing.JButton();
         abajo = new javax.swing.JButton();
         dcha = new javax.swing.JButton();
         izq = new javax.swing.JButton();
-        pokedex = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -257,6 +257,12 @@ public class VentanaPokedex extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, 260, 330));
 
+        pokedex.setBackground(new java.awt.Color(0, 0, 0));
+        pokedex.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        pokedex.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pokedex.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pkedex.png"))); // NOI18N
+        getContentPane().add(pokedex, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 750, 550));
+
         arriba.setBackground(new java.awt.Color(0, 0, 0));
         arriba.setForeground(new java.awt.Color(255, 255, 255));
         arriba.setBorder(null);
@@ -308,12 +314,6 @@ public class VentanaPokedex extends javax.swing.JFrame {
             }
         });
         getContentPane().add(izq, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 430, 30, 20));
-
-        pokedex.setBackground(new java.awt.Color(0, 0, 0));
-        pokedex.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        pokedex.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        pokedex.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pkedex.png"))); // NOI18N
-        getContentPane().add(pokedex, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 750, 550));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
